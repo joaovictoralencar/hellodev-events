@@ -1,0 +1,19 @@
+{
+    "name": "HelloDev.Events.Editor",
+    "rootNamespace": "HelloDev.Events.Editor",
+    "references": [
+        "GUID:77ab856d65a033b4296126f4fd267c0d",
+        "GUID:e5b4c3e4ab8f025469eb50f7f4489925"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

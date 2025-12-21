@@ -1,0 +1,22 @@
+{
+  "name": "com.hellodev.events",
+  "version": "1.1.0",
+  "displayName": "HelloDev Events",
+  "description": "ScriptableObject-based event system for decoupled communication. Supports typed events (void, bool, int, float, string) with auto-reset between play sessions.",
+  "unity": "6000.3",
+  "unityRelease": "0f1",
+  "dependencies": {
+    "com.hellodev.utils": "1.1.0"
+  },
+  "keywords": [
+    "events",
+    "scriptableobject",
+    "observer",
+    "messaging"
+  ],
+  "author": {
+    "name": "HelloDev",
+    "email": "hello@hellodev.com"
+  },
+  "type": "library"
+}
