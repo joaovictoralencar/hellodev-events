@@ -241,6 +241,13 @@ namespace HelloDev.Events.Editor
 
         private object DrawUnityField(Type fieldType, object currentValue)
         {
+            // Handle void/null type (parameterless events)
+            if (fieldType == null || fieldType == typeof(void))
+            {
+                EditorGUILayout.LabelField("(No parameter - void event)");
+                return null;
+            }
+
             if (fieldType == typeof(int))
                 return EditorGUILayout.IntField(currentValue as int? ?? 0);
             else if (fieldType == typeof(float))
@@ -273,19 +280,28 @@ namespace HelloDev.Events.Editor
         {
             try
             {
-                var value = _parameterValue ?? GetDefaultValue(gameEvent.ParameterType);
-        
-                // Add type checking
-                if (value != null && !gameEvent.ParameterType.IsAssignableFrom(value.GetType()))
-                {
-                    Debug.LogError($"Parameter type mismatch. Expected: {gameEvent.ParameterType}, Got: {value.GetType()}");
-                    return;
-                }
-
                 var raiseMethod = gameEvent.GetType().GetMethod("Raise");
                 if (raiseMethod == null)
                 {
                     Debug.LogError("Raise method not found");
+                    return;
+                }
+
+                var paramType = gameEvent.ParameterType;
+
+                // Handle void events (no parameters)
+                if (paramType == null || paramType == typeof(void))
+                {
+                    raiseMethod.Invoke(gameEvent, null);
+                    return;
+                }
+
+                var value = _parameterValue ?? GetDefaultValue(paramType);
+
+                // Add type checking
+                if (value != null && !paramType.IsAssignableFrom(value.GetType()))
+                {
+                    Debug.LogError($"Parameter type mismatch. Expected: {paramType}, Got: {value.GetType()}");
                     return;
                 }
 
