@@ -1,22 +1,27 @@
 {
-  "name": "com.hellodev.events",
-  "version": "1.0.0",
-  "displayName": "HelloDev Events",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joaovictoralencar/hellodev-events.git"
+  },
   "description": "ScriptableObject-based event system for decoupled communication. Supports typed events (void, bool, int, float, string) with auto-reset between play sessions.",
-  "unity": "6000.3",
-  "unityRelease": "0f1",
   "dependencies": {
     "com.hellodev.utils": "1.0.0"
   },
+  "author": {
+    "email": "hello.dev.tecnologia@gmail.com",
+    "name": "Hello Dev"
+  },
+  "unityRelease": "0f1",
+  "type": "library",
   "keywords": [
     "events",
     "scriptableobject",
     "observer",
     "messaging"
   ],
-  "author": {
-    "email": "hello.dev.tecnologia@gmail.com",
-    "name": "Hello Dev"
-  },
-  "type": "library"
+  "unity": "6000.3",
+  "displayName": "HelloDev Events",
+  "version": "1.0.0",
+  "name": "com.hellodev.events",
+  "license": "MIT"
 }
